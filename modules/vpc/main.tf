@@ -1,5 +1,6 @@
 provider "aws" {
-  region = var.region
+#  region = var.region
+region = terraform.workspace == "default" ? var.main_region : var.secondary_region
 }
 
 resource "aws_vpc" "this" {
